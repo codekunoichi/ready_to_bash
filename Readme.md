@@ -1,4 +1,5 @@
 # Tips on Bash Scripting
+> Following are my notes are from the course https://www.linkedin.com/learning/linux-bash-shell-and-scripts/
 
 ### How to count how many lines are present in a file?
 
