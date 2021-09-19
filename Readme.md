@@ -1,5 +1,5 @@
 # Tips on Bash Scripting
-> Following are my notes are from the course https://www.linkedin.com/learning/linux-bash-shell-and-scripts/
+> Following are my notes are from the course https://www.linkedin.com/learning/linux-bash-shell-and-scripts/ and https://learning.oreilly.com/videos/great-bash/
 
 ### How to count how many lines are present in a file?
 
@@ -49,6 +49,23 @@
 
 ### Setting permission on script file
 - `chmod 755 myscript`
+- `chmod a+x myscript`
 - Now you can run the script with `./myscript` no `bash` necessary in front.
+
+### bash tips for the script to run
+- `bash -n myscript` - Bash minus n reads the script but does not execute any of the statements. It runs through the script and checks the syntax only. 
+- `bash -v myscript` - minus v is going to echo every line that it reads from the script. Comments will be included in the output.
+- `bash -x myscript` - it's similar to minus v. But rather than echoing out the command when it reads it up, it echoes it out just before it executes the command. Also *No* comments would be included in the output.
+- In the script file usually the first line looks like `#! /bin/bash` - The comments sign, then an exclamation mark, then a path name to the shell, in this case, bin/bash. This is syntax that the operating system recognizes so that when you execute the script, it knows which interpreter it should use.
+
+### making decisions in bash
+- if our script file looks like the following
+``` 
+cd /temp
+rm *
+```
+- And we do not have `temp` folder to begin with, we just obliterated our current directory files.
+- So to avoid this we should use the `&&` , `||` for combining the success of the previous command to the execution of the later command like the following
+- `cd /temp && rm *`
 
 
