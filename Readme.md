@@ -33,3 +33,22 @@
 - Error messages are going to output into the Error Out - which would be printed on screen
 - stdout would go to the file and stderr will also go to the file if we do following
 - `ls -l myscript not.here > lsout 2> lserr`
+- Out and error can be redirected separately to different output file or together to the same file
+- Putting both of them at once would look like
+- `ls -l myscript not.here &> lsboth`
+- The order of redirection is important
+- `ls -l myscript not.here > lsout 2&> 1`
+- `ls -l myscript not.here >  2&> 1 > lsout`
+- Use pipe to stream output of one program to the input of another. e.g.
+- `ls | wc`
+- `ls not.here 2>&1 | wc`
+
+### Running Job without locking command prompt
+- To continue working on the command prompt and not wait for the job to finish use `&` at the end
+- `./somework &` We will get  back the command prompt.
+
+### Setting permission on script file
+- `chmod 755 myscript`
+- Now you can run the script with `./myscript` no `bash` necessary in front.
+
+
